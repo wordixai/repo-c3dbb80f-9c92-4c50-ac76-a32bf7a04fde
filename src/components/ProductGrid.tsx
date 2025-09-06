@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button"
 import ProductCard from "./ProductCard"
 
 const products = [
