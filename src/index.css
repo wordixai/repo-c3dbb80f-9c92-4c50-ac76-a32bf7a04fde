@@ -1,27 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers:wght@400&family=Comic+Neue:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-   
-  }
-
-  .dark {
-
+    /* Pop Art Color Palette */
+    --pop-orange: 28 100% 58%;
+    --pop-pink: 330 100% 70%;
+    --pop-yellow: 48 100% 67%;
+    --pop-blue: 200 100% 60%;
+    --pop-purple: 280 100% 70%;
+    --pop-green: 150 100% 50%;
+    --pop-red: 0 100% 60%;
+    
+    /* Background gradients */
+    --bg-primary: linear-gradient(135deg, hsl(var(--pop-orange)) 0%, hsl(var(--pop-pink)) 100%);
+    --bg-secondary: linear-gradient(45deg, hsl(var(--pop-yellow)) 0%, hsl(var(--pop-orange)) 100%);
+    
+    /* Shadows */
+    --pop-shadow: 8px 8px 0px hsl(var(--pop-purple));
+    --pop-shadow-hover: 12px 12px 0px hsl(var(--pop-blue));
+    
+    /* Border radius */
+    --radius: 20px;
+    
+    /* System colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: var(--pop-orange);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--pop-pink);
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: var(--pop-yellow);
+    --accent-foreground: 0 0% 10%;
+    --destructive: var(--pop-red);
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: var(--pop-blue);
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+@layer components {
+  .pop-gradient-bg {
+    background: var(--bg-primary);
   }
+  
+  .pop-gradient-secondary {
+    background: var(--bg-secondary);
+  }
+  
+  .pop-shadow {
+    box-shadow: var(--pop-shadow);
+  }
+  
+  .pop-shadow-hover {
+    box-shadow: var(--pop-shadow-hover);
+  }
+  
+  .comic-dots {
+    background-image: radial-gradient(circle, hsl(var(--pop-purple)) 2px, transparent 2px);
+    background-size: 20px 20px;
+  }
+  
+  .comic-dots-small {
+    background-image: radial-gradient(circle, hsl(var(--pop-blue)) 1px, transparent 1px);
+    background-size: 10px 10px;
+  }
+  
+  .pop-text-shadow {
+    text-shadow: 3px 3px 0px hsl(var(--pop-purple));
+  }
+  
+  .bangers {
+    font-family: 'Bangers', cursive;
+    letter-spacing: 0.1em;
+  }
+  
+  .comic-neue {
+    font-family: 'Comic Neue', cursive;
+  }
+  
+  .bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+  
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .wiggle {
+    animation: wiggle 0.8s ease-in-out infinite;
+  }
+  
+  .pulse-pop {
+    animation: pulsePop 2s ease-in-out infinite;
+  }
+  
+  .rotate-slow {
+    animation: rotateSlow 20s linear infinite;
+  }
+}
 
-  body {
-    @apply bg-background text-foreground;
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3) rotate(-10deg);
+    opacity: 0;
   }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+  }
+  70% {
+    transform: scale(0.9) rotate(-1deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+}
+
+@keyframes pulsePop {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button hover effects */
+.btn-pop {
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.btn-pop:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.btn-pop:active {
+  transform: translateY(0px) scale(0.95);
 }

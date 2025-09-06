@@ -76,4 +76,27 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+// Pop Art Card Variants
+const PopCard = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & {
+    variant?: "default" | "comic" | "frame"
+  }
+>(({ className, variant = "default", ...props }, ref) => {
+  const variants = {
+    default: "bg-white border-4 border-pop-purple pop-shadow hover:pop-shadow-hover transform hover:-translate-y-2 transition-all duration-300 rounded-3xl",
+    comic: "bg-white border-4 border-pop-blue pop-shadow comic-dots-small p-1 rounded-3xl transform hover:scale-105 transition-all duration-300",
+    frame: "bg-gradient-to-br from-pop-yellow to-pop-orange border-8 border-white pop-shadow rounded-3xl overflow-hidden transform hover:rotate-1 transition-all duration-300"
+  }
+  
+  return (
+    <div
+      ref={ref}
+      className={cn(variants[variant], className)}
+      {...props}
+    />
+  )
+})
+PopCard.displayName = "PopCard"
+
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, PopCard }

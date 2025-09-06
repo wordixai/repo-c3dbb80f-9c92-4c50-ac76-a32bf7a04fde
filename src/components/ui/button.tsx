@@ -10,20 +10,22 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        pop: "bg-pop-orange text-white font-bold pop-shadow hover:pop-shadow-hover transform transition-all duration-300 btn-pop bangers text-lg tracking-wider",
+        "pop-secondary": "bg-pop-pink text-white font-bold pop-shadow hover:pop-shadow-hover transform transition-all duration-300 btn-pop bangers text-lg tracking-wider",
+        "pop-outline": "border-4 border-pop-purple bg-transparent text-pop-purple font-bold hover:bg-pop-purple hover:text-white transform transition-all duration-300 btn-pop bangers text-lg tracking-wider"
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
+        "pop-lg": "h-14 px-8 py-4 text-xl",
+        "pop-xl": "h-16 px-12 py-6 text-2xl"
       },
     },
     defaultVariants: {
